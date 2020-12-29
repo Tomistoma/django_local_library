@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Tomášova knihovna</h1>
+  <p>Legenda praví, že Napoleonova knihovna vyhořela. Pravdou je, že tajné uskupení, později pojmenované "ilumináti", knihovnu přesunuli do tajných míst. Z generace na generaci, z otce na syna nebo z matky na potrat byly informace o uschování knih předávávány. Až v roce 2020 se vyslal do světa vir, který upoutal pozornost veřejnosti od tajného sněmu iluminátů, kteří se sešli, dali dohromady informace od svých předků, našli knihy a uložili je do nově vytvořené Tomášovi Knihovny. <em>Viva la Bibliotheca</em>!</p>
+  <h2>Obsah knihovny</h2>
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Books:</strong> {{ num_books }}</li>
+    <li><strong>Copies:</strong> {{ num_instances }}</li>
+    <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li><strong>Authors:</strong> {{ num_authors }}</li>
+  </ul>
+  <p>You have visited this page {{ num_visits }} time{% if num_visits > 1 %}s{% endif %}.</p>
+  {% if num_visits == 10 %}
+  <a>wow, to je jako prstů na rukou</a>
+  {% endif %}
+  {% if num_visits > 10 %}
+  <a>wow, je tu větší provoz než na pornhubu</a>
+  {% endif %}
+{% endblock %}
