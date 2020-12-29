@@ -40,7 +40,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'x3!(t4x09i$x&uihe3!53jt&ocrv00
 DEBUG = False
 #DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['polar-badlands-15079.herokuapp.com','127.0.0.1']
 
 
 # Application definition
