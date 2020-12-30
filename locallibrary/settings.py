@@ -23,30 +23,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = '1c7l7@-jvnyl7w+ni^&yn3s@4p@wep)-q6mf*+apc+!33ec33-'
 # Read SECRET_KEY from an environment variable
 # Read SECRET_KEY from an environment variable
-
+import os
 #SECRET_KEY = os.environ['SECRET_KEY']
 
 # OR
 
 # Read secret key from a file
-#with open('/etc/secret_key.txt') as f:
- #   SECRET_KEY = f.read().strip()#
 import os
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'x3!(t4x09i$x&uihe3!53jt&ocrv000f4k_7=kj!k@@@%lgz$u=')
-#SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = False
-#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['polar-badlands-15079.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['polar-badlands-15079.herokuapp.com/','127.0.0.1/']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/London'
 
 USE_I18N = True
 
@@ -135,23 +129,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-
+STATIC_URL = '/static/'
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-
-
-# Heroku: Update database configuration from $DATABASE_URL.
-
-
-
 LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-#. os.path.join(BASE_DIR, 'staticfiles')
-
-# The URL to use when referring to static files (where they will be served from)
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -159,10 +141,8 @@ DATABASES['default'].update(db_from_env)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-#STATIC_ROOT = BASE_DIR / 'staticfiles'  
-STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
-#STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
-STATIC_URL = '/static/'
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
+
+# The URL to use when referring to static files (where they will be served from)
