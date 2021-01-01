@@ -17,34 +17,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
 #SECRET_KEY = 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag'
-=======
-#SECRET_KEY = '1c7l7@-jvnyl7w+ni^&yn3s@4p@wep)-q6mf*+apc+!33ec33-'
-# Read SECRET_KEY from an environment variable
-# Read SECRET_KEY from an environment variable
-import os
-#SECRET_KEY = os.environ['SECRET_KEY']
-
-# OR
-
-# Read secret key from a file
->>>>>>> d345edff55254be28bff77716e08d5020108dabd
 import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 # Set hosts to allow any app on Heroku and the local testing URL
 ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
-=======
-DEBUG = False
-
-ALLOWED_HOSTS = ['polar-badlands-15079.herokuapp.com/','127.0.0.1/']
->>>>>>> d345edff55254be28bff77716e08d5020108dabd
 
 
 # Application definition
@@ -127,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/London'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -136,25 +118,15 @@ USE_L10N = True
 USE_TZ = True
 
 
-<<<<<<< HEAD
 
-=======
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = '/static/'
->>>>>>> d345edff55254be28bff77716e08d5020108dabd
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 
 # Add to test email:
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> d345edff55254be28bff77716e08d5020108dabd
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -164,7 +136,6 @@ DATABASES['default'].update(db_from_env)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-<<<<<<< HEAD
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
 # The URL to use when referring to static files (where they will be served from)
@@ -173,11 +144,4 @@ STATIC_URL = '/static/'
 
 # Static file serving.
 # http://whitenoise.evans.io/en/stable/django.html#django-middleware
-=======
-
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'staticfiles'  #. os.path.join(BASE_DIR, 'staticfiles')
-
-# The URL to use when referring to static files (where they will be served from)
->>>>>>> d345edff55254be28bff77716e08d5020108dabd
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
