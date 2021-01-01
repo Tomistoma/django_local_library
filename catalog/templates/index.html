@@ -12,10 +12,4 @@
     <li><strong>Authors:</strong> {{ num_authors }}</li>
   </ul>
   <p>You have visited this page {{ num_visits }} time{% if num_visits > 1 %}s{% endif %}.</p>
-  {% if num_visits == 10 %}
-  <a>wow, to je jako prstů na rukou</a>
-  {% endif %}
-  {% if num_visits > 10 %}
-  <a>wow, je tu větší provoz než na pornhubu</a>
-  {% endif %}
 {% endblock %}
