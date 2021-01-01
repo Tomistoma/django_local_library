@@ -38,6 +38,7 @@ urlpatterns += [
 urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
+
 #Add URL maps to redirect the base URL to our application
 
 
